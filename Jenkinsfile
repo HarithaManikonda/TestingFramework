@@ -22,6 +22,12 @@ pipeline {
                 echo 'Building..'
             }
         }
+        stage('Test'){
+            steps{
+                sh 'mvn test'
+            }
+        }
+              
         stage('Sonar scan') {
             steps {
                 sh 'mvn sonar:sonar' 
