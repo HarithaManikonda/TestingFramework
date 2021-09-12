@@ -4,12 +4,8 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
-import org.apache.log4j.Logger;
 
 import com.testingframework.pageObjects.LoginPage;
 
@@ -20,8 +16,7 @@ public class TC_LoginTest_001 extends BaseClass
 		public TC_LoginTest_001() {
 			PropertyConfigurator.configure("log4j.properties");
 		}
-
-	@Test
+  	@Test
 	public void loginTest() throws IOException
 
 	{
@@ -32,7 +27,7 @@ public class TC_LoginTest_001 extends BaseClass
 		logger.info("entered the password");
 		lp.clickSubmit();
 		logger.info("clicked the login button");
-		if(driver.getTitle().equals("Guru99 Bank Manager HomePage"))
+		if(driver.getTitle().equals("Guru99rrrr Bank Manager HomePage"))
 		{
 			Assert.assertTrue(true);
 			logger.info("Login test passed");

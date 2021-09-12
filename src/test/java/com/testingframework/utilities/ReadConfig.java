@@ -7,9 +7,18 @@ import java.util.Properties;
 public class ReadConfig 
 {
 	Properties pro;
+	File src;
 	public ReadConfig()
 	{
-		File src=new File("./Configuration/config.properties");
+		///Users/arunakirannulu/eclipse-workspace/TestingFramework/Configuration/config.properties
+		String EnvironmentName = System.getProperty("env");
+		System.out.println("TestEnvironment: " + EnvironmentName);
+		if(EnvironmentName!=null) {
+			 src=new File(String.format("./Configuration/%s-config.properties",EnvironmentName));
+		} else {
+			 src=new File("./Configuration/config.properties");
+		}
+			  
 		try
 		{
 			FileInputStream fis=new FileInputStream(src);

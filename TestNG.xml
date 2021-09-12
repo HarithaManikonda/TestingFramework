@@ -8,12 +8,11 @@
 <test name="BankingApp Test">
 <parameter name="browser" value="chrome"/>
 <classes>
- <class name="com.testingframework.testCases.TC_LoginTest_001"/>
-<class name="com.testingframework.testCases.TC_AddCustomerTest_003"/>
+<class name="com.testingframework.testCases.TC_LoginTest_001"/>
+ <class name="com.testingframework.testCases.TC_AddCustomerTest_003"/>
 
- <!--   <class name="com.testingframework.testCases.TC_LoginDDT_002"/>
-  -->
+ <!--   <class name="com.testingframework.testCases.TC_LoginDDT_002"/>-->
+  
 </classes>
-
 </test>
 </suite>
