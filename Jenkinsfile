@@ -25,15 +25,10 @@ pipeline {
         stage('Test'){
             steps{
                 sh 'mvn test'
+                step([$class: 'Publisher', reportFilenamePattern: "${workspace}/target/surefire-reports/testng-results.xml"])
             }
         }
-        stage('Publish Testng reports'){
-             steps{
-         echo "publish report"
-                 step([$class: 'Publisher', reportFilenamePattern: "${workspace}/target/surefire-reports/testng-results.xml"])
-             }
-        }
-              
+         
         stage('Sonar scan') {
             steps {
                 sh 'mvn sonar:sonar' 
