@@ -26,6 +26,7 @@ pipeline {
             steps{
                 sh 'mvn test'
             }
+            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
         }
               
         stage('Sonar scan') {
