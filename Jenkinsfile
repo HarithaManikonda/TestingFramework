@@ -30,6 +30,7 @@ pipeline {
         stage('Publish Testng reports'){
              steps{
          echo "publish report"
+                 step([$class: 'Publisher', reportFilenamePattern: "${workspace}/(path)/testng-results-mod.xml"])
              }
         }
               
