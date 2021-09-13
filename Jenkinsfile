@@ -28,7 +28,7 @@ pipeline {
             }
         }
         stage('Publish Testng reports'){
-            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+         echo "publish report"
         }
               
         stage('Sonar scan') {
