@@ -28,7 +28,9 @@ pipeline {
             }
         }
         stage('Publish Testng reports'){
+             steps{
          echo "publish report"
+             }
         }
               
         stage('Sonar scan') {
