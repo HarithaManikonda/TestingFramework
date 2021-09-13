@@ -26,6 +26,8 @@ pipeline {
             steps{
                 sh 'mvn test'
             }
+        }
+        stage('Publish Testng reports'){
             step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
         }
               
