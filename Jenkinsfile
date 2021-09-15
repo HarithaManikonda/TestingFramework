@@ -19,13 +19,19 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building..'
+                sh 'mvn clean install -Dmaven.test.skip=true' 
             }
         }
-        stage('Test'){
+        stage('Testing and generating testng reports'){
             steps{
                 sh 'mvn test'
                 step([$class: 'Publisher', reportFilenamePattern: "${workspace}/target/surefire-reports/testng-results.xml"])
+            }
+        }
+        stage('JaCoCo') {
+            steps {
+                echo 'Code Coverage with JaCoCo'
+                sh 'mvn jacoco:report'
             }
         }
          
@@ -35,9 +41,9 @@ pipeline {
             }
         }
         
-        stage('Deploy') {
+        stage('Deploy - deploy the artifacts to nexus repository') {
             steps {
-                echo 'Deploying....'
+                sh 'mvn deploy' 
             }
         }
     }
